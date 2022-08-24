@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">LearningForeingWords</string>
+    <string name="nothing"> </string>
+    <string name="english">Input English word</string>
+    <string name="russian">Input Russian word</string>
+    <string name="other">Input other word</string>
+    <string name="save">save</string>
+    <string name="delete">delete</string>
+    <string name="color">Input color</string>
+    <string name="topic">Input topic name</string>
+    <string name="remove">remove</string>
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "48611991336",
+    "project_id": "learningforeingwords-af742",
+    "storage_bucket": "learningforeingwords-af742.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48611991336:android:b7bc89eea1e1101259ba1d",
+        "android_client_info": {
+          "package_name": "com.example.learningforeingwords"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "48611991336-g3viasnin3t2tnacohk1r8332a9kfupj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNLLAWVhp9raKtKhAQ8H0Zhc_6aM4pyiQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "48611991336-g3viasnin3t2tnacohk1r8332a9kfupj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
