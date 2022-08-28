@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText englishWord, russianWord, otherWord;
     public LinearLayout llMain;
     private FirebaseFirestore mDataFireStore;
+    int count;
 
 
     @Override
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         mDataFireStore = FirebaseFirestore.getInstance();
     }
 
-    public void onClickSave(View view){
+    public void onClickSaveWords(View view){
         String english = englishWord.getText().toString();
         String russian = russianWord.getText().toString();
         String other = otherWord.getText().toString();
@@ -68,9 +69,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickAdd(View view){
-        LinearLayout.LayoutParams lParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams lParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         EditText newEditText = new EditText(this);
-        newEditText.setText("Памагити мне плохо");
+        newEditText.setHint(String.valueOf(count));
+        newEditText.setId(1);????????????????????????????????????????????????????????????????????????
         llMain.addView(newEditText, lParams);
+        count++;
     }
 }

@@ -8,88 +8,105 @@
     tools:layout_editor_absoluteX="-11dp"
     tools:layout_editor_absoluteY="5dp">
 
-    <LinearLayout
-        android:id="@+id/llMain"
-        android:layout_width="302dp"
-        android:layout_height="147dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875"
-        tools:ignore="MissingConstraints">
-
-        <EditText
-            android:id="@+id/englishWord"
-            android:layout_width="302dp"
-            android:layout_height="40dp"
-            android:hint="@string/english"
-            tools:layout_editor_absoluteX="54dp"
-            tools:layout_editor_absoluteY="356dp" />
-
-        <EditText
-            android:id="@+id/otherWord"
-            android:layout_width="302dp"
-            android:layout_height="40dp"
-            android:hint="@string/other"
-            tools:layout_editor_absoluteX="54dp"
-            tools:layout_editor_absoluteY="476dp" />
-
-        <EditText
-            android:id="@+id/russianWord"
-            android:layout_width="302dp"
-            android:layout_height="40dp"
-            android:hint="@string/russian"
-            tools:layout_editor_absoluteX="54dp"
-            tools:layout_editor_absoluteY="416dp" />
-    </LinearLayout>
-
-    <EditText
-        android:id="@+id/color"
-        android:layout_width="302dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/color"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="54dp"
-        tools:layout_editor_absoluteY="279dp" />
-
-    <EditText
-        android:id="@+id/topicName"
-        android:layout_width="302dp"
-        android:layout_height="49dp"
-        android:hint="@string/topic"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="16dp"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/save"
-        android:layout_width="76dp"
-        android:layout_height="37dp"
-        android:onClick="onClickSave"
-        android:text="@string/save"
-        tools:layout_editor_absoluteX="334dp"
-        tools:layout_editor_absoluteY="2dp"
-        tools:ignore="MissingConstraints" />
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
+        android:id="@+id/addFields"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="24dp"
         android:clickable="true"
+        android:onClick="onClickAdd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/ic_input_add"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="519dp"
         tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="119dp"
-        android:layout_height="46dp"
-        android:text="@string/remove"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="529dp" />
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <LinearLayout
+            android:id="@+id/llMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="66dp">
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:text="@string/save"
+                android:onClick="onClickSaveWords"
+                tools:ignore="MissingConstraints,OnClick" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/color"
+                android:layout_marginBottom="20dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <EditText
+                android:id="@+id/color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="@string/color" />
+
+            <EditText
+                android:id="@+id/englishWord"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="@string/english" />
+
+            <EditText
+                android:id="@+id/russianWord"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="@string/russian" />
+
+            <EditText
+                android:id="@+id/otherWord"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="@string/other" />
+
+            <Button
+                android:id="@+id/bDelete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="250dp"
+                android:text="@string/delete" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

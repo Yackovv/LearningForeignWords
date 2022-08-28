@@ -9,4 +9,5 @@
     <string name="color">Input color</string>
     <string name="topic">Input topic name</string>
     <string name="remove">remove</string>
+    <string name="addWords">Add words</string>
 </resources>
