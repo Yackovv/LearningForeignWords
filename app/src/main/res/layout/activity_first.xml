@@ -11,13 +11,13 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginBottom="34dp"
-        android:onClick="onClickAddWords"
+        android:layout_marginBottom="53dp"
         android:text="@string/addWords"
+        android:onClick="onClickAddWords"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints,OnClick,UsingOnClickInXml" />
+        tools:ignore="MissingConstraints,UsingOnClickInXml" />
 
     <ScrollView
         android:layout_width="match_parent"
