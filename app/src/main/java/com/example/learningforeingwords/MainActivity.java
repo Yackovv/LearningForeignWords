@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
         */
         Translate translate = new Translate();
 
-        for (int i = 1; i <= count; i=i+4) {
+        for (int i = 1; i < count; i=i+4) {
 
             EditText eEnglish = findViewById(i);
             String english = eEnglish.getText().toString();
@@ -96,6 +96,8 @@ public class MainActivity extends Activity {
         delete.setId(count+3);
         llMain.addView(delete, lParams);
 
-        otherWord.setText(String.valueOf(llMain.getChildCount()));
+        count += 4;
+
+        otherWord.setText(String.valueOf(count));
     }
 }
