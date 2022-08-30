@@ -14,6 +14,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Map;
+
 public class MainActivity extends Activity {
     EditText englishWord, russianWord, otherWord;
     LinearLayout llMain;
@@ -29,7 +31,7 @@ public class MainActivity extends Activity {
         init();
     }
 
-    public void init(){
+    public void init() {
         englishWord = findViewById(R.id.englishWord);
         russianWord = findViewById(R.id.russianWord);
         otherWord = findViewById(R.id.otherWord);
@@ -43,9 +45,8 @@ public class MainActivity extends Activity {
         String russian = russianWord.getText().toString();
         String other = otherWord.getText().toString();
         */
-        Translate translate = new Translate();
 
-        for (int i = 1; i < count; i=i+4) {
+        for (int i = 1; i < count; i = i + 4) {
 
             EditText eEnglish = findViewById(i);
             String english = eEnglish.getText().toString();
@@ -56,21 +57,8 @@ public class MainActivity extends Activity {
             EditText eOther = findViewById(temp1);
             String other = eOther.getText().toString();
 
-            translate.addWords(english, russian, other);
-
-            var words = translate.getWordsForFireStore();
-
-            mDataFireStore.collection("userss").add(words).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                @Override
-                public void onSuccess(DocumentReference documentReference) {
-                    Log.d(TAG, "documentSnapshot added with ID: " + documentReference.getId());
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Log.w(TAG, "Error adding document", e);
-                }
-            });
+            Translate translate = new Translate(english, russian, other);
+            sendToFireStore(translate.addWordsToMap());
         }
     }
 
@@ -83,21 +71,39 @@ public class MainActivity extends Activity {
 
         EditText russianWord1 = new EditText(this);
         russianWord1.setHint("Input Russian word");
-        russianWord1.setId(count+1);
+        russianWord1.setId(count + 1);
         llMain.addView(russianWord1, lParams);
 
         EditText otherWord1 = new EditText(this);
         otherWord1.setHint("Input other word");
-        otherWord1.setId(count+2);
+        otherWord1.setId(count + 2);
         llMain.addView(otherWord1, lParams);
 
         Button delete = new Button(this);
         delete.setText("DELETE");
-        delete.setId(count+3);
+        delete.setId(count + 3);
         llMain.addView(delete, lParams);
 
         count += 4;
 
         otherWord.setText(String.valueOf(count));
+    }
+
+    public void onClickDelete(View view){
+
+    }
+
+    public void sendToFireStore(Map<String, Map<String, String>> words) {
+        mDataFireStore.collection("userss").add(words).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                Log.d(TAG, "documentSnapshot added with ID: " + documentReference.getId());
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w(TAG, "Error adding document", e);
+            }
+        });
     }
 }
