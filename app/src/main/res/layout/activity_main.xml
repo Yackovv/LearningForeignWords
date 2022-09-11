@@ -16,7 +16,6 @@
         android:layout_marginStart="24dp"
         android:layout_marginBottom="24dp"
         android:clickable="true"
-        android:onClick="onClickAddFields"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/ic_input_add"
@@ -44,7 +43,6 @@
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:text="@string/save"
-                android:onClick="onClickSaveWords"
                 tools:ignore="MissingConstraints" />
 
             <EditText
@@ -73,32 +71,11 @@
                 android:inputType="textPersonName"
                 android:hint="@string/color" />
 
-            <EditText
-                android:id="@+id/englishWord"
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvWords"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="@string/english" />
-
-            <EditText
-                android:id="@+id/russianWord"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="@string/russian" />
-
-            <EditText
-                android:id="@+id/otherWord"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="@string/other" />
+                android:layout_height="wrap_content">
+            </android.support.v7.widget.RecyclerView>
 
         </LinearLayout>
     </ScrollView>
