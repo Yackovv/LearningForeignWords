@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvWords.setLayoutManager(linearLayoutManager);
         rvWords.setHasFixedSize(true);
-        wordsAdapter = new WordsAdapter(arr);
+        wordsAdapter = new WordsAdapter();
         rvWords.setAdapter(wordsAdapter);
 
         llMain = findViewById(R.id.llMain);
