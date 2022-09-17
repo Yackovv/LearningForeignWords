@@ -1,28 +1,30 @@
 package com.example.learningforeingwords;
 
 import static android.content.ContentValues.TAG;
-import androidx.annotation.NonNull;
+
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 public class MainActivity extends Activity {
     RecyclerView rvWords;
     LinearLayout llMain;
     FirebaseFirestore mDataFireStore;
-    int count = 1;
     WordsAdapter wordsAdapter;
 
 
@@ -36,17 +38,29 @@ public class MainActivity extends Activity {
 
     public void init() {
 
+        ArrayList<String> arr = new ArrayList<>();
+        arr.add("");
+
         rvWords = findViewById(R.id.rvWords);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvWords.setLayoutManager(linearLayoutManager);
-        wordsAdapter = new WordsAdapter();
+        rvWords.setHasFixedSize(true);
+        wordsAdapter = new WordsAdapter(arr);
+        rvWords.setAdapter(wordsAdapter);
 
         llMain = findViewById(R.id.llMain);
         mDataFireStore = FirebaseFirestore.getInstance();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    public void addFields (View view){
+
+        wordsAdapter.count++;
+        wordsAdapter.notifyDataSetChanged();
+    }
+
     public void sendToFireStore(Map<String, Map<String, String>> words) {
-        mDataFireStore.collection("userss").add(words).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        mDataFireStore.collection("users").add(words).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
                 Log.d(TAG, "documentSnapshot added with ID: " + documentReference.getId());
